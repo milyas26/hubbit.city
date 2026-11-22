@@ -1,6 +1,6 @@
 /**
  * Generator logo Hubbit City (soft pixel art, tanpa aset pihak ketiga).
- * Jalankan: `npm run logo` → menulis SVG ke public/brand/.
+ * Jalankan: `npm run logo` → menulis SVG ke landing/public/brand/ dan app/public/brand/.
  *
  * Konsep: huruf H pada "HUBBIT" adalah rumah. Tiang H = dinding, atap koral + cerobong di atasnya,
  * ruang atas H = jendela menyala, ruang bawah H = pintu kayu. Outline hanya pada 4 tetangga
@@ -166,11 +166,15 @@ function measure(word) {
   return [...word].reduce((w, ch) => w + GLYPHS[ch][0].length + GAP, 0) - GAP
 }
 
-const out = join(dirname(fileURLToPath(import.meta.url)), '..', 'public', 'brand')
-mkdirSync(out, { recursive: true })
+// Ditulis ke landing dan app sekaligus supaya kedua salinan tidak pernah berbeda.
+const root = join(dirname(fileURLToPath(import.meta.url)), '..', '..')
+const outs = ['landing/public/brand', 'app/public/brand']
+for (const o of outs) mkdirSync(join(root, o), { recursive: true })
 const write = (name, svg) => {
-  writeFileSync(join(out, name), svg)
-  console.log(`public/brand/${name}`)
+  for (const o of outs) {
+    writeFileSync(join(root, o, name), svg)
+    console.log(`${o}/${name}`)
+  }
 }
 
 // 1. Mendatar: HUBBIT CITY dalam satu baris
