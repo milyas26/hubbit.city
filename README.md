@@ -30,7 +30,16 @@ npm run typecheck && npm run lint && npm test && npm run build
 - Tanpa statistik, testimoni, atau logo pihak ketiga. Semua nama fiktif (SPEC §2.2).
 - Warna hanya dari token di `globals.css`.
 
-## Deploy
+## Deploy (Cloudflare Workers)
 
-`next.config.ts` memakai `output: 'standalone'`. Set `NEXT_PUBLIC_APP_URL` saat **build**
-(nilainya ditanam ke HTML statis), lalu jalankan `node .next/standalone/server.js`.
+Landing diekspor statis (`output: 'export'` → `out/`) lalu disajikan Worker tanpa kode
+(`wrangler.jsonc`, static assets) di custom domain **https://hubbit.city** dan **https://www.hubbit.city**
+(konten sama; `<link rel="canonical">` selalu ke apex). Cloudflare mengurus record DNS dan sertifikat keduanya.
+
+```
+npx wrangler login   # sekali per mesin
+npm run deploy       # next build && wrangler deploy
+```
+
+`NEXT_PUBLIC_APP_URL` untuk production ada di `.env.production` (`https://play.hubbit.city`) dan ditanam
+ke HTML saat build, jadi ubah nilainya lalu deploy ulang bila alamat game berubah.

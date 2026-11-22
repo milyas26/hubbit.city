@@ -9,6 +9,9 @@
     "not_found_handling": "404-page"
   },
   // Cloudflare membuat record DNS + sertifikat untuk custom domain ini otomatis.
-  "routes": [{ "pattern": "hubbit.city", "custom_domain": true }],
+  "routes": [
+    { "pattern": "hubbit.city", "custom_domain": true },
+    { "pattern": "www.hubbit.city", "custom_domain": true }
+  ],
   "workers_dev": false
 }

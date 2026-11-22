@@ -7,10 +7,11 @@ import '../globals.css'
 const t = dict.en
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://hubbit.city'),
   title: t.meta.title,
   description: t.meta.description,
   icons: { icon: '/brand/hubbit-city-app-icon.svg' },
-  alternates: { languages: { id: '/' } },
+  alternates: { canonical: '/en/', languages: { id: '/' } },
 }
 
 export default function RootLayout({ children }: { children: ReactNode }) {
