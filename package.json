@@ -10,7 +10,8 @@
     "typecheck": "tsc --noEmit",
     "lint": "eslint .",
     "test": "node --test \"test/*.test.ts\"",
-    "logo": "node scripts/logo.mjs"
+    "logo": "node scripts/logo.mjs",
+    "deploy": "next build && wrangler deploy"
   },
   "dependencies": {
     "next": "16.4.6",
@@ -25,6 +26,7 @@
     "eslint": "^9",
     "eslint-config-next": "16.4.6",
     "tailwindcss": "^4.3.5",
-    "typescript": "~6.0"
+    "typescript": "~6.0",
+    "wrangler": "^4.166.0"
   }
 }

@@ -1,0 +1,14 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  // Worker tanpa kode: hanya menyajikan hasil `next build` (output: 'export') dari out/.
+  "name": "hubbit-city-landing",
+  "compatibility_date": "2026-11-01",
+  "assets": {
+    "directory": "./out",
+    "html_handling": "auto-trailing-slash",
+    "not_found_handling": "404-page"
+  },
+  // Cloudflare membuat record DNS + sertifikat untuk custom domain ini otomatis.
+  "routes": [{ "pattern": "hubbit.city", "custom_domain": true }],
+  "workers_dev": false
+}
