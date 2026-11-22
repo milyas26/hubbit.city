@@ -1,3 +1,4 @@
+import Image from 'next/image'
 import { appUrl } from '@/content/appUrl'
 import { dict, type Lang } from '@/content/dict'
 import { LiftDemo } from './LiftDemo'
@@ -20,8 +21,9 @@ export function Landing({ lang }: { lang: Lang }) {
     <>
       <header className="sticky top-0 z-20 border-b-2 border-ink bg-paper/95 backdrop-blur-sm">
         <div className="mx-auto flex max-w-6xl items-center gap-3 px-4 py-2.5">
-          <a href="#top" className="font-pixel text-xl font-bold whitespace-nowrap">
-            Hubbit City
+          <a href="#top" className="shrink-0 rounded-md">
+            {/* 100×32 unit pixel → skala 1,5 supaya tiap pixel logo tetap rata. */}
+            <Image src="/brand/hubbit-city-logo.svg" alt="Hubbit City" width={150} height={48} priority unoptimized />
           </a>
           <nav aria-label={t.nav.label} className="ml-6 hidden gap-1 lg:flex">
             {sections.map((s) => (

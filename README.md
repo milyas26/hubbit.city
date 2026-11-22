@@ -20,6 +20,8 @@ npm run typecheck && npm run lint && npm test && npm run build
 | `src/components/LiftDemo.tsx` | Peraga lift interaktif (satu-satunya client component) |
 | `src/content/dict.ts` | Semua teks, `id` dan `en`. Teks baru wajib punya keduanya |
 | `src/content/appUrl.ts` | Tautan ke app, dari `NEXT_PUBLIC_APP_URL` (bawaan `http://localhost:8080`) |
+| `scripts/logo.mjs` | Generator logo pixel (`npm run logo` → `public/brand/*.svg`) |
+| `public/brand/` | Logo mendatar, bertumpuk, ikon rumah-H, ikon aplikasi persegi |
 | `test/` | `node:test`: kamus id/en sama bentuknya, tanpa teks kosong/em dash |
 
 ## Aturan isi

@@ -9,6 +9,7 @@ const t = dict.en
 export const metadata: Metadata = {
   title: t.meta.title,
   description: t.meta.description,
+  icons: { icon: '/brand/hubbit-city-app-icon.svg' },
   alternates: { languages: { id: '/' } },
 }
 
