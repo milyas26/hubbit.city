@@ -32,8 +32,8 @@ npm run typecheck && npm run lint && npm test && npm run build
 
 ## Deploy (Cloudflare Workers)
 
-Landing diekspor statis (`output: 'export'` → `out/`) lalu disajikan Worker tanpa kode
-(`wrangler.jsonc`, static assets) di custom domain **https://hubbit.city** dan **https://www.hubbit.city**
+Landing diekspor statis (`output: 'export'` → `out/`) lalu disajikan Worker (`wrangler.jsonc`, static assets).
+`worker/index.ts` berjalan lebih dulu: HTTP dialihkan 301 ke HTTPS dan tiap respons diberi header HSTS. Custom domain: **https://hubbit.city** dan **https://www.hubbit.city**
 (konten sama; `<link rel="canonical">` selalu ke apex). Cloudflare mengurus record DNS dan sertifikat keduanya.
 
 ```

@@ -1,10 +1,14 @@
 {
   "$schema": "node_modules/wrangler/config-schema.json",
-  // Worker tanpa kode: hanya menyajikan hasil `next build` (output: 'export') dari out/.
+  // Menyajikan hasil `next build` (output: 'export') dari out/. worker/index.ts berjalan lebih dulu
+  // untuk mengalihkan HTTP → HTTPS dan menambah header HSTS.
   "name": "hubbit-city-landing",
+  "main": "worker/index.ts",
   "compatibility_date": "2026-11-01",
   "assets": {
     "directory": "./out",
+    "binding": "ASSETS",
+    "run_worker_first": true,
     "html_handling": "auto-trailing-slash",
     "not_found_handling": "404-page"
   },
