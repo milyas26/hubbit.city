@@ -1,0 +1,46 @@
+@import 'tailwindcss';
+
+/* Nilai sama dengan app/src/theme/tokens.ts (palette) supaya landing dan app terasa satu kota. */
+@theme {
+  --color-paper: #fff7ea;
+  --color-paper-deep: #f6e9d3;
+  --color-ink: #2b2540;
+  --color-ink-soft: #5b5470;
+  --color-line: #e6d6bb;
+  --color-accent: #ff7a59;
+  --color-sky: #bfe3ff;
+  --color-night: #1b2140;
+  --color-glow: #ffd27a;
+  --color-night-tint: #262b5c;
+  --font-sans: var(--font-jakarta), ui-sans-serif, system-ui, sans-serif;
+  --font-pixel: var(--font-pixelify), var(--font-jakarta), ui-sans-serif, system-ui, sans-serif;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 5rem;
+  }
+  body {
+    @apply bg-paper text-ink font-sans antialiased;
+  }
+  :focus-visible {
+    outline: 3px solid var(--color-accent);
+    outline-offset: 2px;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+    *,
+    *::before,
+    *::after {
+      transition-duration: 0.01ms !important;
+    }
+  }
+}
+
+/* Penanda lantai bergaya layar lift: motif identitas yang dipakai di tiap bagian. */
+@utility floor-chip {
+  @apply inline-flex items-center gap-2 rounded-md bg-ink px-2.5 py-1 font-pixel text-sm tracking-wide text-glow;
+}
